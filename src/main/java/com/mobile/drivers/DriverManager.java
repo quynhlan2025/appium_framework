@@ -24,4 +24,7 @@ public abstract class DriverManager {
         }
         return driver;
     }
+    public AppiumDriver<?> getDriver() {
+        return driver;
+    }
 }
