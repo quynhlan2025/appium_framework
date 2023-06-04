@@ -234,4 +234,29 @@ public class MobileKeywords {
                     MessageFormat.format("Cannot close the application. Root cause: {0}", e.getMessage()));
         }
     }
+    public boolean verifyElementText(Object locator, String expectedText, int... timeout) {
+        WebElement we = findMobileElement(locator, timeout);
+        String webId = MobileElementHelper.findTestObjectName(locator);
+        String locatorValue = MobileElementHelper.findTestObjectNameValue(locator);
+        try {
+            logger.info(
+                    MessageFormat.format("Verifying text of web element ''{0}'' located by ''{1}''", webId, locatorValue));
+            String actualText = we.getText();
+            if (actualText.equals(expectedText)) {
+                logger.info(
+                        MessageFormat.format("Text of web element ''{0}'' located by ''{1}'' is ''{2}''", webId, locatorValue,
+                                actualText));
+                return true;
+            } else {
+                logger.error(MessageFormat.format(
+                        "Actual text ''{0}'' and Expected text ''{1}'' of web element ''{2}'' located by ''{3}''",
+                        actualText, expectedText, webId, locatorValue));
+            }
+        } catch (Exception e) {
+            logger.error(MessageFormat.format(
+                    "Cannot verify text of web element ''{0}'' located by ''{1}''. Root cause: ''{2}''", webId, locatorValue,
+                    e.getMessage()));
+        }
+        return false;
+    }
 }

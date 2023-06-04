@@ -1,0 +1,5 @@
+{
+  "ANIMATION": "//android.widget.TextView[@content-desc=\"Animation\"]",
+  "LBL_APP": "//android.widget.TextView[@content-desc=\"App\"]",
+  "CONTENT": "//android.widget.TextView[@content-desc=\"Content\"]"
+}
