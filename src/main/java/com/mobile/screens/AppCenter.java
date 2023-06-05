@@ -12,7 +12,9 @@ public class AppCenter extends BaseScreen {
 
     public boolean shouldBeToShowSearchLabel(String text) {
         if(mobileAction.verifyElementText(findTestObject("LBL_SEARCH"),text)) {
+            mobileAction.takeScreenShot();
             return true;
+
         }
         return false;
     }
