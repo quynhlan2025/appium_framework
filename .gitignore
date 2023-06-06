@@ -6,7 +6,7 @@ git
 
 #report
 build
-build/allure-results
+build/allure-results/*
 
 #Log
 testlog
